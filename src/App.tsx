@@ -26,19 +26,29 @@ function App() {
   return (
     <>
       <Header/>
-      <Container className='mt-5'>
-        <Row>
-        <Row className='mt-3'>
-          <Col className='NotesHeader'>
-            <h2 style={{display:'inline-block'}}>Notes</h2>
-            <CreateNotesModal notes={notes} setNotes={setNotes} />
+      <Container className='mt-5 notePage'>
+        <Row className='notePage'>
+          {/** 사이드바 */}
+          <Col xs={3} className='sidebar'>
+            <h3>Sidebar</h3>
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
           </Col>
-        </Row>
-          <Col>
+          
+          {/** Main Content */}
+          <Col xs={9}>
+            <Row className='mt-3'>
+              <Col className='NotesHeader'>
+                <h2 style={{display:'inline-block'}}>Notes</h2>
+                <CreateNotesModal notes={notes} setNotes={setNotes} />
+              </Col>
+            </Row>
             <NotesList notes={notes} setNotes={ setNotes } />
           </Col>
         </Row>
-        <SelectBasicExample />
       </Container>
     </>
   );

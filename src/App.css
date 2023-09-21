@@ -1,3 +1,17 @@
+body, html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#root, .container-fluid{
+  height: 100%;
+}
+.notePage{
+  height: 100%;
+}
+.NotesHeader{
+  margin: 30px 0px;
+}
 .NotesHeader > h2 {
   margin: 20px;
 }
@@ -30,4 +44,9 @@
   padding: 8px 15px;
   margin: 10px 10px 10px 0px;
   border-radius: 30%;
+}
+.sidebar {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-right: 1px solid #ccc;
 }
