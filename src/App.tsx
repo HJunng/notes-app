@@ -6,14 +6,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import NotesList from './components/NotesList';
 import CreateNotesModal from './components/CreateNotesModal';
+import SelectBasicExample from './components/SelectBasicExample';
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([{
     id:(new Date()).toLocaleString(),
     title: "Meetings",
     text:" Schedule meeting with UI/UX Team",
-    color: "#fdfac9",
-    date: (new Date()).toLocaleString()
+    color: "#fff0ba",
+    date: (new Date()).toLocaleString(),
+    tags: ["Work"]
   }]);
 
   const[showModal, setShowModal] = useState(false); //Modal state
@@ -36,7 +38,7 @@ function App() {
             <NotesList notes={notes} setNotes={ setNotes } />
           </Col>
         </Row>
-        
+        <SelectBasicExample />
       </Container>
     </>
   );

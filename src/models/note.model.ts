@@ -3,5 +3,6 @@ export interface Note {
   title:string,
   text:string,
   color:string,
-  date:string
+  date:string,
+  tags?:string[]
 }
