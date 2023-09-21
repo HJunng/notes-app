@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Alert, Button, Form } from 'react-bootstrap';
 import { Note } from '../models/note.model';
 
 interface ICreateNotesProps {
@@ -16,34 +16,30 @@ const CreateNotes: React.FunctionComponent<ICreateNotesProps> = ({notes, setNote
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(titleRef.current?.value === "" || textRef.current?.value === ""){
-      return setError("All fields are mandatory");
+      return setError("모든 값을 입력해주세요!");
     }
 
     setError("");
     setNotes([...notes, {
-      id: (new Date()).toString(),
+      id: (new Date()).toLocaleString(),
       title: (titleRef.current as HTMLInputElement).value,
       text:(textRef.current as HTMLTextAreaElement).value,
       color:(colorRef.current as HTMLInputElement).value,
-      date: (new Date()).toString()
-    }])
+      date: (new Date()).toLocaleString()
+    }]);
 
-    // 폼 초기화
-  if (titleRef.current) {
-    titleRef.current.value = "";
-  }
-  if (textRef.current) {
-    textRef.current.value = "";
-  }
-  if (colorRef.current) {
-    colorRef.current.value = "#dfdfdf";  // 기본 색으로 설정
-  }
+    //폼 초기화
+    (titleRef.current as HTMLInputElement).value="";
+    (textRef.current as HTMLTextAreaElement).value="";
+    (colorRef.current as HTMLInputElement).value="#dfdfdf";
+
     
   }
 
   return (
     <>
       <h2>Create Notes</h2>
+      { error && <Alert variant='danger'>{ error }</Alert>}
       <Form className='mt-3 mb-3' onSubmit={(e) => handleSubmit(e)}>
         <Form.Group className='mb-3' controlId='formBasicTitle'>
           <Form.Label>Title</Form.Label>

@@ -9,11 +9,11 @@ import CreateNotes from './components/CreateNotes';
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([{
-    id:(new Date()).toString(),
+    id:(new Date()).toLocaleString(),
     title: "Meetings",
     text:" Schedule meeting with UI/UX Team",
     color: "#dfdfdf",
-    date: (new Date()).toString()
+    date: (new Date()).toLocaleString()
   }]);
 
 
