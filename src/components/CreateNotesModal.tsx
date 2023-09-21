@@ -5,15 +5,17 @@ import Tags from './Tags';
 
 interface ICreateNotesModalProps {
   notes: Note[],
-  setNotes: React.Dispatch<React.SetStateAction<Note[]>>
+  setNotes: React.Dispatch<React.SetStateAction<Note[]>>,
+  allTags: string[],
+  setAllTags:React.Dispatch<React.SetStateAction<string[]>>
 }
 
-const CreateNotesModal: React.FunctionComponent<ICreateNotesModalProps> = ({ notes, setNotes }) => {
+const CreateNotesModal: React.FunctionComponent<ICreateNotesModalProps> = ({ notes, setNotes, allTags, setAllTags }) => {
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState<string>("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const[tag, setTag] = useState(''); //새로운 태그
-  const[allTags, setAllTags]=useState<string[]>(['Work','Personal','Important']);
+  //const[allTags, setAllTags]=useState<string[]>(['Work','Personal','Important']);
   const titleRef = React.useRef<HTMLInputElement | null>(null);
   const textRef = React.useRef<HTMLTextAreaElement | null>(null);
   const colorRef = React.useRef<HTMLInputElement | null>(null);

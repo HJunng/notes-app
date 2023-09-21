@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import NotesList from './components/NotesList';
 import CreateNotesModal from './components/CreateNotesModal';
-import SelectBasicExample from './components/SelectBasicExample';
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([{
@@ -18,10 +17,17 @@ function App() {
     tags: ["Work"]
   }]);
 
-  const[showModal, setShowModal] = useState(false); //Modal state
+  const [allTags, setAllTags] = useState<string[]>(['Work','Personal','Important']);
+  const [filterNotes, setFilterNotes] = useState<Note[]>(notes);
 
-  const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
+  const filterByTag = (tag: string) => {
+    if(tag === 'All'){
+      setFilterNotes(notes); //모든 노트를 보여줍니다.
+    }else{
+      setFilterNotes(notes.filter(note => note.tags?.includes(tag)));
+    }
+  }
+
 
   return (
     <>
@@ -29,12 +35,15 @@ function App() {
       <Container className='mt-5 notePage'>
         <Row className='notePage'>
           {/** 사이드바 */}
-          <Col xs={3} className='sidebar'>
-            <h3>Sidebar</h3>
-            <ul>
-              <li>Item 1</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
+          <Col xs={3} className='sidebar p-4'>
+            <h3 className='text-center bg-light p-2 rounded'>Tags</h3>
+            <ul className='list-group mt-3'>
+              <li className='list-group-item' style={{padding:'1rem 2rem'}} onClick={() => filterByTag('All')}>All</li>
+              {allTags.map((tag,index) => (
+                <li key={index} style={{padding:'1rem 2rem'}} className='list-group-item d-flex justify-cnotent-between align-items-center' onClick={() => filterByTag(tag)}>
+                  {tag}
+                </li>
+              ))}
             </ul>
           </Col>
           
@@ -43,10 +52,10 @@ function App() {
             <Row className='mt-3'>
               <Col className='NotesHeader'>
                 <h2 style={{display:'inline-block'}}>Notes</h2>
-                <CreateNotesModal notes={notes} setNotes={setNotes} />
+                <CreateNotesModal notes={notes} setNotes={setNotes} allTags={allTags} setAllTags={setAllTags} />
               </Col>
             </Row>
-            <NotesList notes={notes} setNotes={ setNotes } />
+            <NotesList notes={filterNotes} setNotes={ setNotes } />
           </Col>
         </Row>
       </Container>
