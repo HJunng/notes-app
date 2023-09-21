@@ -10,7 +10,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
       <Container>
           <Navbar.Brand href="#home">
             
-            React Bootstrap
+            HJ's Notee App
           </Navbar.Brand>
         </Container>
     </Navbar>

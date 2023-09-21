@@ -3,7 +3,7 @@ import './App.css';
 import {Note} from './models/note.model';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import NotesList from './components/NotesList';
 import CreateNotesModal from './components/CreateNotesModal';
 
