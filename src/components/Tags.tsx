@@ -16,15 +16,8 @@ const Tags: React.FunctionComponent<ITagsProps> = ({allTags,selectedTags,customT
     <>
       <Form.Group className='mb-3' controlId='formBasicTags'>
         <Form.Label>Tags</Form.Label>
-        <Form.Select multiple onChange={handleTagChange}>
-          {allTags.map((tag,index) => (
-            <option key={index} value={tag}>{tag}</option>
-          ))}
-        </Form.Select>
-      </Form.Group>
-      <Form.Group className='mb-3' controlId='formBasicTags'>
-        <Form.Label>Tags</Form.Label>
-        <Form.Select multiple aria-label='Default select Tag' onChange={handleTagChange}>
+        <Form.Select onChange={handleTagChange}>
+          <option>태그를 선택해주세요</option>
           {allTags.map((tag,index) => (
             <option key={index} value={tag}>{tag}</option>
           ))}

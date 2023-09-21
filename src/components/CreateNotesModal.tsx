@@ -62,7 +62,7 @@ const CreateNotesModal: React.FunctionComponent<ICreateNotesModalProps> = ({ not
     if (colorRef.current) {
       colorRef.current.value = "#fff0ba"; // 기본 색으로 설정
     }
-    //setTags([]);//태그 초기화
+    setSelectedTags([]);//태그 초기화
     handleClose();  // 모달 닫기
   };
 
