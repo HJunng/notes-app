@@ -9,7 +9,7 @@ interface INotesProps {
 
 const Notes: React.FunctionComponent<INotesProps> = ({note, handleDelete}) => {
   return (
-    <div className="m-3" style={{display:'inline-block'}}>
+    <div className="m-2" style={{display:'inline-block'}}>
       <Card style={{ width: '18rem', height: '16rem', backgroundColor:note.color }}>
         <Card.Body>
           <Card.Title style={{fontSize:'1.5rem'}}>{note.title}</Card.Title>
