@@ -27,6 +27,18 @@ const CreateNotes: React.FunctionComponent<ICreateNotesProps> = ({notes, setNote
       color:(colorRef.current as HTMLInputElement).value,
       date: (new Date()).toString()
     }])
+
+    // 폼 초기화
+  if (titleRef.current) {
+    titleRef.current.value = "";
+  }
+  if (textRef.current) {
+    textRef.current.value = "";
+  }
+  if (colorRef.current) {
+    colorRef.current.value = "#dfdfdf";  // 기본 색으로 설정
+  }
+    
   }
 
   return (
