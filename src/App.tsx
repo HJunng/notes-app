@@ -3,9 +3,9 @@ import './App.css';
 import {Note} from './models/note.model';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import NotesList from './components/NotesList';
-import CreateNotes from './components/CreateNotes';
+import CreateNotesModal from './components/CreateNotesModal';
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([{
@@ -16,22 +16,27 @@ function App() {
     date: (new Date()).toLocaleString()
   }]);
 
+  const[showModal, setShowModal] = useState(false); //Modal state
 
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   return (
     <>
       <Header/>
       <Container className='mt-5'>
         <Row>
+        <Row className='mt-3'>
+          <Col>
+            <h2 style={{display:'inline-block'}}>Notes</h2>
+            <CreateNotesModal notes={notes} setNotes={setNotes} />
+          </Col>
+        </Row>
           <Col>
             <NotesList notes={notes} setNotes={ setNotes } />
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <CreateNotes notes={notes} setNotes={ setNotes } />
-          </Col>
-        </Row>
+        
       </Container>
     </>
   );

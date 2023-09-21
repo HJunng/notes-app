@@ -19,10 +19,10 @@ const NotesList: React.FC<INotesListProps> = ({notes, setNotes}) => {
   }
   return (
     <>
-    <div className='mt-3 flex notesNav' style={{alignItems:'center', justifyContent:'space-between'}}>
+    {/* <div className='mt-3 flex notesNav' style={{alignItems:'center', justifyContent:'space-between'}}>
       <h2 style={{display:'inline-block'}}>Notes</h2>
       <Button as='input' variant='warning' type='button' value=' + create' />{' '}
-    </div>
+    </div> */}
       <div>{ renderNotes() }</div>
     </>
   );
