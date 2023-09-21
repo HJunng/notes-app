@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Note } from '../models/note.model';
 import Notes from './Notes';
-import { Button } from 'react-bootstrap';
 
 interface INotesListProps {
   notes: Note[],
@@ -18,13 +17,7 @@ const NotesList: React.FC<INotesListProps> = ({notes, setNotes}) => {
     })
   }
   return (
-    <>
-    {/* <div className='mt-3 flex notesNav' style={{alignItems:'center', justifyContent:'space-between'}}>
-      <h2 style={{display:'inline-block'}}>Notes</h2>
-      <Button as='input' variant='warning' type='button' value=' + create' />{' '}
-    </div> */}
-      <div>{ renderNotes() }</div>
-    </>
+    <>{ renderNotes() }</>
   );
 };
 

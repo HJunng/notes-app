@@ -1,10 +1,23 @@
-.notesNav > h2 {
+.NotesHeader > h2 {
   margin: 20px;
 }
-.notesNav > .btn {
+.NotesHeader > .btn {
   font-size: large;
   margin: 10px 20px;
 }
 .card-title{
   font-size: 1.3rem;
+}
+.row{
+  display: flex;
+  flex-direction: row;  /* 가로로 나열 */
+  flex-wrap: wrap; /* 필요시 자동으로 다음 줄로 이동 */
+}
+.btn {
+  background-color:#fecfcd;
+  color: #fdfac9;
+  color: #c9e9fd;
+}
+.btn-danger{
+  background-color: #ef9591;
 }

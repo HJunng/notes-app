@@ -12,7 +12,7 @@ function App() {
     id:(new Date()).toLocaleString(),
     title: "Meetings",
     text:" Schedule meeting with UI/UX Team",
-    color: "#dfdfdf",
+    color: "#fdfac9",
     date: (new Date()).toLocaleString()
   }]);
 
@@ -27,7 +27,7 @@ function App() {
       <Container className='mt-5'>
         <Row>
         <Row className='mt-3'>
-          <Col>
+          <Col className='NotesHeader'>
             <h2 style={{display:'inline-block'}}>Notes</h2>
             <CreateNotesModal notes={notes} setNotes={setNotes} />
           </Col>

@@ -40,7 +40,7 @@ const CreateNotesModal: React.FunctionComponent<ICreateNotesModalProps> = ({ not
       textRef.current.value = "";
     }
     if (colorRef.current) {
-      colorRef.current.value = "#dfdfdf"; // 기본 색으로 설정
+      colorRef.current.value = "#fff0ba"; // 기본 색으로 설정
     }
 
     handleClose();  // 모달 닫기
@@ -68,7 +68,7 @@ const CreateNotesModal: React.FunctionComponent<ICreateNotesModalProps> = ({ not
             </Form.Group>
             <Form.Group className='mb-3'>
               <Form.Label htmlFor='colorInput'>Notes Colors</Form.Label>
-              <Form.Control type='color' id='colorInput' defaultValue='#dfdfdf' title='Choose your color' ref={colorRef} />
+              <Form.Control type='color' id='colorInput' defaultValue='#fff0ba' title='Choose your color' ref={colorRef} />
             </Form.Group>
             <Button type='submit' variant='primary'>Submit</Button>
           </Form>
